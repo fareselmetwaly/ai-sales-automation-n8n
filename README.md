@@ -84,7 +84,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 2 — CRM Integration & Email Sending
 
-![Workflow 2 Architecture](./diagrams/diagram_b.png)
+![Workflow 2 Architecture](./diagram_b.png)
 
 **What it does:**
 - Detects when a human marks an email as approved in Google Sheets
@@ -99,7 +99,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 3 — Automated Email Reply Handler
 
-![Workflow 3 Architecture](./diagrams/diagram_c.png)
+![Workflow 3 Architecture](./diagram_c.png)
 
 **What it does:**
 - Monitors Gmail inbox for replies from leads
@@ -115,7 +115,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 4 — Automated Follow-Up System
 
-![Workflow 4 Architecture](./diagrams/diagram_d.png)
+![Workflow 4 Architecture](./diagram_d.png)
 
 **What it does:**
 - Triggered by Notion when a lead's "Next Communication" date arrives
@@ -131,7 +131,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 5 — Meeting Booking Handler
 
-![Workflow 5 Architecture](./diagrams/diagram_e.png)
+![Workflow 5 Architecture](./diagram_e.png)
 
 **What it does:**
 - Triggered when a new event is created in Google Calendar
@@ -146,7 +146,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 6 — AI Proposal Generator
 
-![Workflow 6 Architecture](./diagrams/diagram_f.png)
+![Workflow 6 Architecture](./diagram_f.png)
 
 **What it does:**
 - Triggered when the team fills in the post-meeting form
@@ -167,7 +167,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 7 — Contract Automation
 
-![Workflow 7 Architecture](./diagrams/diagram_g.png)
+![Workflow 7 Architecture](./diagram_g.png)
 
 **What it does:**
 - Triggered when the client accepts the proposal via a contract form
@@ -188,7 +188,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 8 — Client Onboarding Automation
 
-![Workflow 8 Architecture](./diagrams/diagram_h.png)
+![Workflow 8 Architecture](./diagram_h.png)
 
 **What it does:**
 - Triggered when the onboarding form is submitted
@@ -208,7 +208,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 9 — Telegram Orchestrator Agent
 
-![Workflow 9 Architecture](./diagrams/diagram_m.png)
+![Workflow 9 Architecture](./diagram_m.png)
 
 **What it does:**
 - A central command interface via Telegram for the sales team
@@ -292,5 +292,5 @@ The full workflow logic, AI prompts, and automation scripts are kept private for
 Interested in a similar system for your business?
 
 - 📧 fares.m.elmetwaly@gmail.com
-- 🔗 [LinkedIn]([https://www.linkedin.com/in/fares-maaty/])
+- 🔗 [LinkedIn](https://www.linkedin.com/in/fares-maaty/)
 - 💼 [Upwork Profile](https://upwork.com/your-profile)
