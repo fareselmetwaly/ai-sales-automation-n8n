@@ -25,7 +25,7 @@ A fully automated, AI-powered sales pipeline that handles every stage of the fun
 
 ## 🗺️ System Architecture Overview
 
-![System Architecture](./architecture_overview.png)
+![System Architecture](./SALES Fundamental.png)
 
 The system runs across **9 automated workflows**, organized into 5 main stages:
 
