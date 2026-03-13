@@ -62,7 +62,7 @@ A key design principle of this system is **keeping humans in the loop** at criti
 
 ### Workflow 1 — Lead Generation & AI Filtration
 
-![Workflow 1 Architecture](./diagrams/diagram_a.png)
+![Workflow 1 Architecture](./diagram_a.png)
 
 **How leads are sourced:**
 Leads are collected via **Apify** (a professional web scraping platform), exported as a structured file, and uploaded to Google Drive. This approach was chosen over full automation for cost-efficiency — Apify provides $5 free monthly credits which covers the required lead volume without extra cost.
