@@ -1,38 +1,67 @@
-# 🤖 End-to-End AI Sales Automation Engine
+# End-to-End AI Sales Automation Engine
 
-> A full-cycle intelligent sales system built with n8n that automates the entire sales funnel — from lead generation to client onboarding — with human oversight at critical decision points.
-
----
-
-## 📌 The Problem
-
-Sales teams manually waste **15–20 hours per week** on repetitive tasks:
-
-- Researching hundreds of leads one by one
-- Writing personalized emails from scratch for each prospect
-- Tracking follow-ups manually in spreadsheets
-- Scheduling meetings and sending reminders
-- Preparing proposals and contracts manually
-- Handling client onboarding paperwork
+> Most sales teams don't lose deals because of bad products — they lose them because of slow follow-ups, generic emails, and leads that fall through the cracks. This system fixes all three.
 
 ---
 
-## ✅ The Solution
+## The Problem
 
-A fully automated, AI-powered sales pipeline that handles every stage of the funnel automatically — with humans stepping in only at key decision points to ensure quality and control.
+Every sales team running manual operations faces the same bottlenecks:
+
+- Hours wasted researching each lead before writing a single email
+- Cold emails that sound cold — because they are generic
+- Follow-ups that depend on someone remembering to send them
+- Proposals and contracts built from scratch after every meeting
+- Deals lost simply because a lead went cold while waiting for a response
+
+The real cost isn't just time — it's the deals that never close because the process was too slow.
 
 ---
 
-## 🗺️ System Architecture Overview
+## The Solution
 
-![System Architecture](./architecture_overview.png)
+A 9-workflow automation pipeline that eliminates every manual touchpoint in the sales funnel — from the moment a lead file lands in Google Drive to the moment the client receives their onboarding document.
 
-The system runs across **9 automated workflows**, organized into 5 main stages:
+Humans stay in the loop only where it matters: approving emails before they go out, reviewing proposals, and signing off on contracts. Everything else runs automatically.
 
-```
-Lead Generation → CRM Integration → Email Reply Handling
-→ Meeting & Proposal → Contract & Onboarding
-```
+### How the system works end-to-end:
+
+**Stage 1 — Lead Generation & Filtration**
+Leads are sourced via Apify and uploaded to Google Drive. The system picks up the file automatically, extracts company name, email, and website, and filters out incomplete records.
+
+**Stage 2 — AI-Powered Email Drafting**
+An AI agent visits each company's website, reads and summarizes their business using Gemini, then generates a hyper-personalized cold email for each lead. Every draft is saved to Google Sheets for human review.
+
+**Stage 3 — CRM Integration & Sending**
+Once a human approves an email in Google Sheets, the system creates a new record in Notion CRM, sends the email via Gmail, and updates the CRM status — automatically.
+
+**Stage 4 — Email Reply Handling**
+The system monitors Gmail for replies and uses AI to detect intent. Interested leads get a calendar booking link. Uninterested leads are moved to Drop status. The team is notified on Telegram either way.
+
+**Stage 5 — Automated Follow-Up Sequence**
+If a lead doesn't respond, the system triggers follow-ups automatically on Days 1, 3, and 7. After three attempts with no reply, the lead is marked as dropped — no manual tracking needed.
+
+**Stage 6 — Meeting Booking & Confirmation**
+When a lead books a meeting on Google Calendar, the system updates Notion, sends a confirmation to the team on Telegram, and schedules a reminder before the meeting.
+
+**Stage 7 — AI Proposal Generation**
+After the meeting, the team fills a form with the client's needs. The AI analyzes the data, writes a full professional proposal, downloads it, and creates a draft email — ready for human review in minutes.
+
+**Stage 8 — Contract Automation**
+Once the client accepts the proposal, the system generates a contract from the agreed terms, prepares the email draft, updates the CRM, and notifies the team — all without manual input.
+
+**Stage 9 — Client Onboarding**
+When the contract is signed, the system creates a dedicated folder in Google Drive, fills the onboarding document with the client's data, prepares the delivery email, and marks the lead as Launched in Notion.
+
+---
+
+## ROI / Impact
+
+- **15–20 hours/week** of manual sales work eliminated across lead research, email writing, follow-ups, and document preparation
+- **Zero leads fall through the gaps** — every prospect is tracked from first contact to signed contract inside Notion CRM
+- **Proposal and contract generation** reduced from hours to minutes
+- **Follow-up consistency** is no longer human-dependent — the sequence runs automatically regardless of workload
+- **Sales team focuses entirely on calls and closing** — all surrounding admin work is handled by the system
 
 ---
 
@@ -56,13 +85,39 @@ A key design principle of this system is **keeping humans in the loop** at criti
 
 ---
 
+## Tech Stack
+
+| Category | Tools |
+|----------|-------|
+| Automation | n8n (Self-Hosted) |
+| AI Models | Gemini, Ollama, OpenRouter |
+| Lead Sourcing | Apify |
+| CRM | Notion API |
+| Communication | Gmail API, Telegram API |
+| Scheduling | Google Calendar API |
+| Storage | Google Drive API, Google Sheets API |
+| Infrastructure | Docker, VPS, Nginx, SSL |
+
+
+---
+
+## 🗺️ System Architecture Overview
+
+![System Architecture](./architecture_overview.png)
+
+The system runs across **9 automated workflows**, organized into 5 main stages:
+
+```
+Lead Generation → CRM Integration → Email Reply Handling
+→ Meeting & Proposal → Contract & Onboarding
+```
+
+---
 ## ⚙️ System Workflows (9 Workflows)
 
 ---
 
 ### Workflow 1 — Lead Generation & AI Filtration
-
-![Workflow 1 Architecture](./diagram_a.png)
 
 **How leads are sourced:**
 Leads are collected via **Apify** (a professional web scraping platform), exported as a structured file, and uploaded to Google Drive. This approach was chosen over full automation for cost-efficiency — Apify provides $5 free monthly credits which covers the required lead volume without extra cost.
@@ -78,13 +133,10 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 > 👤 **Human step:** Sales rep reviews and approves emails before sending — ensuring quality control at this critical stage.
 
-![Workflow 1 Screenshot](./screenshots/01_lead_generation.png)
-
 ---
 
 ### Workflow 2 — CRM Integration & Email Sending
 
-![Workflow 2 Architecture](./diagram_b.png)
 
 **What it does:**
 - Detects when a human marks an email as approved in Google Sheets
@@ -93,13 +145,11 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 - Updates the CRM status to "Email Sent"
 - Logs the CRM ID back into Google Sheets for full tracking
 
-![Workflow 2 Screenshot](./screenshots/02_crm_integration.png)
 
 ---
 
 ### Workflow 3 — Automated Email Reply Handler
 
-![Workflow 3 Architecture](./diagram_c.png)
 
 **What it does:**
 - Monitors Gmail inbox for replies from leads
@@ -109,13 +159,9 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 - Sends a Telegram notification to the team with the reply summary
 - Creates a follow-up task in Notion for the team
 
-![Workflow 3 Screenshot](./screenshots/03_email_reply.png)
-
 ---
 
 ### Workflow 4 — Automated Follow-Up System
-
-![Workflow 4 Architecture](./diagram_d.png)
 
 **What it does:**
 - Triggered by Notion when a lead's "Next Communication" date arrives
@@ -125,13 +171,9 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 - If status is "Meeting Sent" → notifies the team to follow up personally
 - If status is "Follow-Up Sent" → marks the lead as dropped in Notion
 
-![Workflow 4 Screenshot](./screenshots/04_followup.png)
-
 ---
 
 ### Workflow 5 — Meeting Booking Handler
-
-![Workflow 5 Architecture](./diagram_e.png)
 
 **What it does:**
 - Triggered when a new event is created in Google Calendar
@@ -140,13 +182,9 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 - Sends a Telegram notification to the team with meeting details
 - Reminds the team to fill in the meeting outcome form afterward
 
-![Workflow 5 Screenshot](./screenshots/05_meeting_handling.png)
-
 ---
 
 ### Workflow 6 — AI Proposal Generator
-
-![Workflow 6 Architecture](./diagram_f.png)
 
 **What it does:**
 - Triggered when the team fills in the post-meeting form
@@ -161,13 +199,9 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 > 👤 **Human step:** Team reviews the AI-generated proposal and sends it to the client.
 
-![Workflow 6 Screenshot](./screenshots/06_proposal_automation.png)
-
 ---
 
 ### Workflow 7 — Contract Automation
-
-![Workflow 7 Architecture](./diagram_g.png)
 
 **What it does:**
 - Triggered when the client accepts the proposal via a contract form
@@ -182,13 +216,9 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 > 👤 **Human step:** Team reviews and sends the contract to the client for signing.
 
-![Workflow 7 Screenshot](./screenshots/07_contract.png)
-
 ---
 
 ### Workflow 8 — Client Onboarding Automation
-
-![Workflow 8 Architecture](./diagram_h.png)
 
 **What it does:**
 - Triggered when the onboarding form is submitted
@@ -202,13 +232,9 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 - Updates Notion CRM status to "Launch"
 - Sends a Telegram notification confirming onboarding is complete
 
-![Workflow 8 Screenshot](./screenshots/08_onboarding.png)
-
 ---
 
 ### Workflow 9 — Telegram Orchestrator Agent
-
-![Workflow 9 Architecture](./diagram_m.png)
 
 **What it does:**
 - A central command interface via Telegram for the sales team
@@ -222,64 +248,10 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 - Updates CRM status automatically after each action
 - Sends a confirmation message back to the team on Telegram
 
-![Workflow 9 Screenshot](./screenshots/09_telegram_orchestrator.png)
 
 ---
-
-## 🛠️ Tech Stack
-
-| Category | Tools |
-|----------|-------|
-| **Automation** | n8n (Self-Hosted) |
-| **AI Models** | Gemini, Ollama, OpenRouter, GPT |
-| **Lead Sourcing** | Apify |
-| **CRM** | Notion API |
-| **Communication** | Gmail API, Telegram API |
-| **Storage** | Google Drive API, Google Sheets API |
-| **Infrastructure** | Docker, VPS, SSL, Nginx |
-
 ---
 
-## 📊 Key Results
-
-- ✅ Eliminated **15–20 hours/week** of manual sales work
-- ✅ **Zero leads lost** due to automated CRM status tracking
-- ✅ Proposal generation reduced from **hours → minutes**
-- ✅ Full sales funnel runs **without human intervention** except at decision points
-- ✅ **Cost-efficient** lead sourcing via Apify ($5/month free credits)
-- ✅ Complete audit trail of every lead stored in Notion CRM
-
----
-
-## 📁 Repository Structure
-
-```
-📦 ai-sales-automation-n8n
- ┣ 📂 screenshots/               ← n8n workflow screenshots
- ┃ ┣ 01_lead_generation.png
- ┃ ┣ 02_crm_integration.png
- ┃ ┣ 03_email_reply.png
- ┃ ┣ 04_followup.png
- ┃ ┣ 05_meeting_handling.png
- ┃ ┣ 06_proposal_automation.png
- ┃ ┣ 07_contract.png
- ┃ ┣ 08_onboarding.png
- ┃ ┗ 09_telegram_orchestrator.png
- ┣ 📂 diagrams/                  ← detailed architecture diagrams
- ┃ ┣ diagram_a.png
- ┃ ┣ diagram_b.png
- ┃ ┣ diagram_c.png
- ┃ ┣ diagram_d.png
- ┃ ┣ diagram_e.png
- ┃ ┣ diagram_f.png
- ┃ ┣ diagram_g.png
- ┃ ┣ diagram_h.png
- ┃ ┗ diagram_m.png
- ┣ 📄 architecture_overview.png  ← full system overview diagram
- ┗ 📄 README.md
-```
-
----
 
 ## 🔐 Note on Source Code
 
