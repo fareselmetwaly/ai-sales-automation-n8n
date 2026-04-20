@@ -103,7 +103,7 @@ A key design principle of this system is **keeping humans in the loop** at criti
 
 ## 🗺️ System Architecture Overview
 
-![System Architecture](./architecture_overview.png)
+![System Architecture](./Full Arch.png)
 
 The system runs across **9 automated workflows**, organized into 5 main stages:
 
