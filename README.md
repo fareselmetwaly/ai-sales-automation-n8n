@@ -138,7 +138,6 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 2 — CRM Integration & Email Sending
-
 ![Lead Generation & AI Filtration](./diagram_b.png)
 
 **What it does:**
@@ -152,9 +151,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 3 — Automated Email Reply Handler
-
 ![Lead Generation & AI Filtration](./diagram_c.png)
-
 
 **What it does:**
 - Monitors Gmail inbox for replies from leads
@@ -245,7 +242,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 9 — Telegram Orchestrator Agent
-![Lead Generation & AI Filtration](./diagram_n.png)
+![Lead Generation & AI Filtration](./diagram_m.png)
 
 **What it does:**
 - A central command interface via Telegram for the sales team
