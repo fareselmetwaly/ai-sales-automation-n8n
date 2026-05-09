@@ -139,6 +139,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 2 — CRM Integration & Email Sending
 
+![Lead Generation & AI Filtration](./diagram_b.png)
 
 **What it does:**
 - Detects when a human marks an email as approved in Google Sheets
@@ -152,6 +153,8 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 
 ### Workflow 3 — Automated Email Reply Handler
 
+![Lead Generation & AI Filtration](./diagram_c.png)
+
 
 **What it does:**
 - Monitors Gmail inbox for replies from leads
@@ -164,6 +167,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 4 — Automated Follow-Up System
+![Lead Generation & AI Filtration](./diagram_d.png)
 
 **What it does:**
 - Triggered by Notion when a lead's "Next Communication" date arrives
@@ -176,6 +180,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 5 — Meeting Booking Handler
+![Lead Generation & AI Filtration](./diagram_e.png)
 
 **What it does:**
 - Triggered when a new event is created in Google Calendar
@@ -187,6 +192,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 6 — AI Proposal Generator
+![Lead Generation & AI Filtration](./diagram_f.png)
 
 **What it does:**
 - Triggered when the team fills in the post-meeting form
@@ -204,6 +210,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 7 — Contract Automation
+![Lead Generation & AI Filtration](./diagram_g.png)
 
 **What it does:**
 - Triggered when the client accepts the proposal via a contract form
@@ -221,6 +228,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 8 — Client Onboarding Automation
+![Lead Generation & AI Filtration](./diagram_h.png)
 
 **What it does:**
 - Triggered when the onboarding form is submitted
@@ -237,6 +245,7 @@ Leads are collected via **Apify** (a professional web scraping platform), export
 ---
 
 ### Workflow 9 — Telegram Orchestrator Agent
+![Lead Generation & AI Filtration](./diagram_n.png)
 
 **What it does:**
 - A central command interface via Telegram for the sales team
